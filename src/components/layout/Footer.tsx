@@ -5,6 +5,11 @@ import { SERVICE_EMAIL, SERVICE_PHONE, SERVICE_PHONE_HREF } from "@/lib/contact"
 
 const LOGO_VERSION = "20260416-1250";
 
+type FooterLink = {
+  href: string;
+  label: string;
+};
+
 const footerLinks = {
   services: [
     { href: "/services/waschmaschinen-reparatur", label: "Waschmaschine" },
@@ -18,7 +23,8 @@ const footerLinks = {
     { href: "/ueber-uns", label: "Über uns" },
     { href: "/kontakt", label: "Kontakt" },
   ],
-  legal: [],
+  // Keep an explicit element type so TS doesn't infer this as `never[]`.
+  legal: [] as FooterLink[],
 };
 
 export default function Footer() {
