@@ -59,10 +59,10 @@ export default function DatenschutzPage() {
               <p>
                 E-Mail:{" "}
                 <a
-                  href="mailto:office@repairexpert.at"
+                  href="mailto:office@repairexperte.de"
                   className="font-medium text-brand-dark hover:text-brand"
                 >
-                  office@repairexpert.at
+                  office@repairexperte.de
                 </a>
               </p>
             </div>
@@ -169,10 +169,10 @@ export default function DatenschutzPage() {
               Zukunft widerrufen. Senden Sie uns hierzu einfach eine formlose
               E-Mail an{" "}
               <a
-                href="mailto:office@repairexpert.at"
+                href="mailto:office@repairexperte.de"
                 className="font-medium text-brand-dark hover:text-brand"
               >
-                office@repairexpert.at
+                office@repairexperte.de
               </a>
               .
             </p>
