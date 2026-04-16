@@ -6,10 +6,17 @@ export async function POST(req: Request) {
 
     const { name, email, phone, message } = body;
 
+    const port = Number(process.env.SMTP_PORT ?? 0);
+    // Decide TLS mode by port:
+    // - 465 -> implicit TLS (secure=true)
+    // - 587 -> STARTTLS (secure=false)
+    const secure = port === 465;
+
     const transporter = nodemailer.createTransport({
       host: process.env.SMTP_HOST,
-      port: Number(process.env.SMTP_PORT),
-      secure: true, // true for 465, false for 587
+      port,
+      // port 465 uses implicit TLS, port 587 typically uses STARTTLS (secure=false)
+      secure,
       auth: {
         user: process.env.SMTP_USER,
         pass: process.env.SMTP_PASS,
