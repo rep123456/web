@@ -4,6 +4,41 @@ export async function POST(request: Request) {
   try {
     const body = await request.json();
 
+    const firstName = String(body?.vorname ?? "").trim();
+    const lastName = String(body?.nachname ?? "").trim();
+    const fullName = String(body?.name ?? `${firstName} ${lastName}`).trim();
+    const email = String(body?.email ?? "").trim();
+    const phone = String(body?.telefon ?? body?.phone ?? "").trim();
+    const location = String(body?.plz ?? body?.location ?? "").trim();
+    const applianceType = String(body?.geraetetyp ?? body?.deviceType ?? "").trim();
+    const message = String(body?.message ?? "").trim();
+
+    const detailRows = [
+      { label: "Name", value: fullName },
+      { label: "E-Mail", value: email },
+      { label: "Telefon", value: phone },
+      { label: "Standort / PLZ", value: location },
+      { label: "Geraetetyp", value: applianceType },
+      { label: "Nachricht", value: message },
+    ];
+
+    const htmlDetails = detailRows
+      .filter((row) => row.value.length > 0)
+      .map(
+        (row) =>
+          `<p><b>${row.label}:</b> ${row.value
+            .replace(/&/g, "&amp;")
+            .replace(/</g, "&lt;")
+            .replace(/>/g, "&gt;")
+            .replace(/\n/g, "<br/>")}</p>`
+      )
+      .join("");
+
+    const textDetails = detailRows
+      .filter((row) => row.value.length > 0)
+      .map((row) => `${row.label}: ${row.value}`)
+      .join("\n");
+
     const port = Number(process.env.SMTP_PORT ?? 0);
     // Decide TLS mode by port:
     // - 465 -> implicit TLS (secure=true)
@@ -29,8 +64,9 @@ export async function POST(request: Request) {
       subject: "Neue Anfrage von Website",
       html: `
         <h2>Neue Anfrage</h2>
-        <p>${body?.message ?? ""}</p>
+        ${htmlDetails || "<p>Keine Details uebermittelt.</p>"}
       `,
+      text: `Neue Anfrage\n\n${textDetails || "Keine Details uebermittelt."}`,
     });
 
     return Response.json({ success: true });
