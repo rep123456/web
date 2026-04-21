@@ -134,16 +134,6 @@ export default function ContactForm({ lang = "de", defaultApplianceKey }: Contac
         return;
       }
       setStatus("success");
-      
-
-// Google Ads conversion event
-if (typeof window !== "undefined" && window.gtag) {
-  window.gtag("event", "conversion", {
-    send_to: "AW-17863468955/8e1CCIhb-PsbEJvP-8VC",
-    value: 1.0,
-    currency: "EUR"
-  });
-}
       form.reset();
       trackContactFormSuccess();
     } catch {

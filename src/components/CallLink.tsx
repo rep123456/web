@@ -10,7 +10,16 @@ type CallLinkProps = React.AnchorHTMLAttributes<HTMLAnchorElement>;
  */
 export default function CallLink({ href, onClick, children, ...rest }: CallLinkProps) {
   const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    trackGoogleAdsCallConversion();
+    if (href) {
+      e.preventDefault();
+      trackGoogleAdsCallConversion(href);
+      // Fallback navigation in case event_callback does not fire quickly enough.
+      window.setTimeout(() => {
+        window.location.href = href;
+      }, 800);
+    } else {
+      trackGoogleAdsCallConversion();
+    }
     onClick?.(e);
   };
 
