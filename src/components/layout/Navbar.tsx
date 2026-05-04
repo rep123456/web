@@ -73,16 +73,16 @@ export default function Navbar() {
 
   return (
     <header className="relative z-50 border-b border-slate-200 bg-white/80 backdrop-blur">
-      <div className="mx-auto flex max-w-6xl items-center px-4 py-4 md:relative md:px-8 lg:px-10">
-        <Link href="/" className="flex items-center shrink-0 md:absolute md:left-1/2 md:-translate-x-1/2">
+      <div className="mx-auto flex max-w-6xl items-center px-4 py-3 sm:py-4 md:px-8 lg:relative lg:px-10">
+        <Link href="/" className="flex shrink-0 items-center lg:absolute lg:left-1/2 lg:-translate-x-1/2">
           <Image
             src={`/logo_repair_expert.png?v=${LOGO_VERSION}`}
             alt="Rrepair Expert"
             width={249}
             height={68}
-            className="h-[68px] w-auto logo-tint-brand"
+            className="h-10 w-auto sm:h-12 lg:h-[68px] logo-tint-brand"
             quality={100}
-            sizes="249px"
+            sizes="(max-width: 1023px) 180px, 249px"
             priority
           />
         </Link>
@@ -90,7 +90,7 @@ export default function Navbar() {
         <button
           type="button"
           aria-label="Navigation öffnen"
-          className="ml-auto inline-flex items-center justify-center rounded-xl border border-slate-200 bg-white px-2.5 py-1.5 text-slate-700 shadow-sm hover:bg-slate-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 md:hidden"
+          className="ml-auto inline-flex items-center justify-center rounded-xl border border-slate-200 bg-white px-2.5 py-1.5 text-slate-700 shadow-sm hover:bg-slate-50 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 lg:hidden"
           onClick={() => setOpen((prev) => !prev)}
         >
           <span className="sr-only">Menü</span>
@@ -118,7 +118,7 @@ export default function Navbar() {
           </svg>
         </button>
 
-        <nav className="hidden items-center gap-6 md:flex md:flex-1 md:justify-start">
+        <nav className="hidden flex-1 items-center gap-4 xl:gap-6 lg:flex lg:justify-start">
           {navLinks.map((link) => {
             const href = isEnglish && "enHref" in link ? link.enHref : link.href;
             const label = isEnglish && "enLabel" in link ? link.enLabel : link.label;
@@ -188,7 +188,7 @@ export default function Navbar() {
             );
           })}
 
-          <div className="ml-auto flex items-center gap-4 pl-4">
+          <div className="ml-auto flex shrink-0 items-center gap-4 pl-4">
             <div className="flex items-center gap-1 text-sm font-medium" role="group" aria-label="Sprache wählen">
               <Link
                 href={hrefDe}
@@ -236,7 +236,7 @@ export default function Navbar() {
       </div>
 
       {open && (
-        <nav className="border-t border-slate-200 bg-white md:hidden">
+        <nav className="border-t border-slate-200 bg-white lg:hidden">
           <div className="mx-auto flex max-w-6xl flex-col gap-1 px-4 py-3">
             {navLinks.map((link) => {
               const href = isEnglish && "enHref" in link ? link.enHref : link.href;

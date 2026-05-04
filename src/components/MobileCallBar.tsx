@@ -5,7 +5,7 @@ import { SERVICE_PHONE, SERVICE_PHONE_HREF } from "@/lib/contact";
 
 export default function MobileCallBar() {
   return (
-    <div className="fixed inset-x-0 bottom-0 z-[60] md:hidden">
+    <div className="fixed inset-x-0 bottom-0 z-[60] lg:hidden">
       <div className="mx-auto max-w-6xl px-4 pb-[max(env(safe-area-inset-bottom),0.75rem)] pt-2">
         <CallLink
           href={SERVICE_PHONE_HREF}

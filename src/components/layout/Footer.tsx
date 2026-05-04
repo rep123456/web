@@ -39,9 +39,9 @@ export default function Footer() {
                 alt="Rrepair Expert"
                 width={249}
                 height={68}
-                className="h-[68px] w-auto logo-tint-brand"
+                className="h-10 w-auto sm:h-12 lg:h-[68px] logo-tint-brand"
                 quality={100}
-                sizes="249px"
+                sizes="(max-width: 1023px) 180px, 249px"
               />
             </Link>
             <p className="mt-4 max-w-md text-sm text-slate-600">

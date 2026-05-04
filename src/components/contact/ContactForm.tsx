@@ -145,7 +145,7 @@ export default function ContactForm({ lang = "de", defaultApplianceKey }: Contac
   const privacyHref = "/datenschutz";
 
   return (
-    <div className="rounded-3xl border border-slate-200 bg-white/95 shadow-lg backdrop-blur-sm">
+    <div className="min-w-0 rounded-3xl border border-slate-200 bg-white/95 shadow-lg backdrop-blur-sm">
       <div className="border-b border-slate-100 px-6 pb-5 pt-7 sm:px-9">
         <h2 className="text-xl font-semibold tracking-tight text-slate-900 sm:text-2xl">
           {t.title}

@@ -17,14 +17,16 @@ export default function HomeEn() {
       {/* Hero */}
       <section className="relative overflow-hidden border-b border-slate-200 bg-slate-50">
         <div className="relative z-10 mx-auto max-w-6xl px-4 pb-16 pt-12 md:px-8 md:pb-20 md:pt-16">
-          <div className="mx-auto max-w-xl text-center">
-            <div className="inline-flex items-center gap-2 rounded-full bg-brand-light/40 px-3 py-1 text-xs font-semibold text-brand-dark ring-1 ring-brand/20">
-              <span className="inline-flex h-5 w-5 items-center justify-center rounded-full bg-brand text-[0.65rem] text-white">
+          <div className="mx-auto min-w-0 max-w-xl text-center">
+            <div className="mx-auto flex max-w-full flex-col items-center gap-1.5 rounded-full bg-brand-light/40 px-3 py-1.5 text-center text-[0.65rem] font-semibold leading-snug text-brand-dark ring-1 ring-brand/20 sm:inline-flex sm:flex-row sm:gap-2 sm:text-xs">
+              <span className="inline-flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-brand text-[0.65rem] text-white">
                 ✓
               </span>
-              <span>GeräteProfi appliance service Hamburg</span>
+              <span className="max-w-[20rem] text-pretty sm:max-w-none">
+                GeräteProfi appliance service Hamburg
+              </span>
             </div>
-            <h1 className="mt-4 text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl lg:text-[2.75rem]">
+            <h1 className="mt-4 text-pretty text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl lg:text-[2.75rem]">
               Appliance
               <br />
               <span className="text-brand">Repair</span>
@@ -32,10 +34,10 @@ export default function HomeEn() {
             <p className="mt-4 text-sm leading-relaxed text-slate-600 sm:text-base">
               Our technicians come to your home – transparent pricing, honest advice and specialist repairs for all common household appliances.
             </p>
-            <div className="mt-6 flex flex-col items-center justify-center gap-3 sm:flex-row">
+            <div className="mt-6 flex w-full min-w-0 flex-col items-stretch justify-center gap-3 sm:w-auto sm:flex-row sm:items-center">
               <CallLink
                 href={SERVICE_PHONE_HREF}
-                className="inline-flex items-center justify-center rounded-xl bg-brand px-6 py-3 text-sm font-semibold text-white shadow-sm hover:bg-brand-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2"
+                className="inline-flex w-full min-w-0 items-center justify-center gap-2 whitespace-normal rounded-xl bg-brand px-4 py-3 text-center text-sm font-semibold text-white shadow-sm hover:bg-brand-dark focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 sm:w-auto sm:px-6 sm:whitespace-nowrap"
               >
                 <span className="mr-2 inline-flex h-7 w-7 items-center justify-center rounded-full bg-white/15 text-white">
                   <svg
@@ -54,7 +56,7 @@ export default function HomeEn() {
               </CallLink>
               <Link
                 href="/#kontaktformular"
-                className="inline-flex items-center justify-center rounded-xl border border-slate-200 bg-white px-6 py-3 text-sm font-semibold text-slate-900 shadow-sm hover:border-brand hover:text-brand focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2"
+                className="inline-flex w-full min-w-0 items-center justify-center rounded-xl border border-slate-200 bg-white px-4 py-3 text-center text-sm font-semibold text-slate-900 shadow-sm hover:border-brand hover:text-brand focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 sm:w-auto sm:px-6"
               >
                 Online request
               </Link>
@@ -64,7 +66,7 @@ export default function HomeEn() {
             </p>
           </div>
         </div>
-        <div className="mx-auto mt-8 grid max-w-4xl gap-4 px-4 text-sm text-slate-600 sm:grid-cols-3">
+        <div className="mx-auto mt-8 grid max-w-4xl grid-cols-1 gap-4 px-4 text-sm text-slate-600 sm:grid-cols-2 lg:grid-cols-3">
           <div className="flex items-start gap-3 rounded-2xl bg-white px-5 py-4 shadow-sm">
             <span className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-brand-light text-brand-dark">✓</span>
             <div className="min-w-0 text-left">

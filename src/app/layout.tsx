@@ -1,10 +1,11 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import MobileCallBar from "@/components/MobileCallBar";
+import WhatsAppFloat from "@/components/WhatsAppFloat";
 import { SERVICE_EMAIL, SERVICE_PHONE } from "@/lib/contact";
 
 const geistSans = Geist({
@@ -21,6 +22,12 @@ const siteUrl = "https://www.haushaltsgeraete-kundendienst.at";
 const siteName = "GeräteProfi";
 const siteDescription =
   "Schneller Haushaltsgeräte-Kundendienst in Hamburg – Waschmaschine, Geschirrspüler, Kühlschrank, Backofen, Trockner.";
+
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  themeColor: "#f8fafc",
+};
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -106,12 +113,12 @@ export default function RootLayout({
         </Script>
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased bg-slate-50 text-slate-900`}
+        className={`${geistSans.variable} ${geistMono.variable} min-w-0 overflow-x-hidden antialiased bg-slate-50 text-slate-900`}
       >
-        <div className="flex min-h-screen flex-col">
+        <div className="flex min-h-screen min-w-0 flex-col">
           <Navbar />
 
-          <main className="flex-1 pb-24 md:pb-0">
+          <main className="flex-1 min-w-0 pb-24 lg:pb-0">
             {children}
 
             {/* LocalBusiness JSON-LD */}
@@ -128,6 +135,7 @@ export default function RootLayout({
         </div>
 
         <MobileCallBar />
+        <WhatsAppFloat />
       </body>
     </html>
   );
