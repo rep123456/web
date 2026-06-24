@@ -62,7 +62,7 @@ export default function HomeEn() {
               </Link>
             </div>
             <p className="mt-3 text-xs text-slate-500">
-              Mon–Fri 08:00–18:00 · Service across Hamburg
+              Mon–Fri 08:00–18:00 · Nationwide service
             </p>
           </div>
         </div>

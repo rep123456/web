@@ -109,7 +109,7 @@ export default function Home() {
                 </Link>
               </div>
               <p className="mt-3 text-xs text-slate-500">
-                Mo–Fr 08:00–18:00 Uhr · Hamburgweiter Kundendienst
+                Mo–Fr 08:00–18:00 Uhr · Deutschlandweiter Kundendienst
               </p>
             </div>
           </div>
